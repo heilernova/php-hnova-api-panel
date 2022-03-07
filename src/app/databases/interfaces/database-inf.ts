@@ -1,4 +1,5 @@
 export interface IDatabaseInf{
+    name:string,
     type:string,
-    dataConnection:object
+    dataConnection:any
 }

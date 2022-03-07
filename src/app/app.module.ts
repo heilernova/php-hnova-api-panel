@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { DatabasesModule } from './databases/databases.module';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +16,9 @@ import { DatabasesModule } from './databases/databases.module';
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
-    DatabasesModule
+    HttpClientModule,
+    DatabasesModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

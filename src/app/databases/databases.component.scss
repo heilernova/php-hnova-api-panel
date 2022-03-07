@@ -1,0 +1,28 @@
+:host{
+    width: 100%;
+    max-width: 700px;
+    // background-color: red;
+}
+ul.data-connection{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    row-gap: 10px;
+    flex-direction: column;
+    li{
+        display: flex;
+        padding: 0;
+        margin: 0;
+        .title{
+            // background-color: rebeccapurple;
+            width: 110px;
+        }
+        .text{
+            font-family: "Cascadia Code";
+            background-color: rgba(107, 201, 255, 0.808);
+            border-radius: 5px;
+            padding: 3px 10px;
+        }
+    }
+}

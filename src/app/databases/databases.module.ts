@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DatabasesComponent } from './databases.component';
-
-
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -10,9 +9,11 @@ import { DatabasesComponent } from './databases.component';
   ],
   imports: [
     CommonModule,
+    MatExpansionModule
   ],
   exports: [
-    DatabasesComponent
+    DatabasesComponent,
+    
   ]
 })
 export class DatabasesModule { }

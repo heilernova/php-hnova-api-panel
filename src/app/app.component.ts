@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-hnova-api-panel';
+  indexPage:number = 0;
+  constructor(){
+    
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabasesService } from './databases.service';
 import { IDatabaseInf } from './interfaces/database-inf';
 
 @Component({
@@ -9,18 +10,17 @@ import { IDatabaseInf } from './interfaces/database-inf';
 export class DatabasesComponent implements OnInit {
 
   listDatabases:IDatabaseInf[] = [];
-  constructor() {
-    this.listDatabases = [
-      { 
-        type:'mysql',
-        dataConnection:{
-          hostname: 'localhost',
-          username: 'root',
-          password: '',
-          database: 'test'
-        }
+  constructor(
+    private _databases:DatabasesService
+  ) {
+    this._databases.onGetDatabases().subscribe({
+      next: data=>{
+        this.listDatabases = data;
+        // console.log(data);
+      },error:()=>{
+
       }
-    ]
+    })
   }
 
   ngOnInit(): void {

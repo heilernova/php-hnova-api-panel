@@ -1,8 +1,34 @@
 <h1>Bases de datos utilizadas por la API</h1>
-<ul>
-    <li *ngFor="let db of listDatabases">
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel *ngFor="let db of listDatabases">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{db.name.toUpperCase()}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{db.type.toLocaleUpperCase()}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
         <div>
-            {{db.type}}
+            <div>Datos de conexión</div>
+            <ul class="data-connection">
+                <li>
+                    <div class="title">Servidor:</div>
+                    <div class="text">{{db.dataConnection.hostname}}</div>
+                </li>
+                <li>
+                    <div class="title">Usuario:</div>
+                    <div class="text">{{db.dataConnection.username}}</div>
+                </li>
+                <li>
+                    <div class="title">Contraseña:</div>
+                    <div class="text">{{db.dataConnection.password}}</div>
+                </li>
+                <li>
+                    <div class="title">Base de datos:</div>
+                    <div class="text">{{db.dataConnection.database}}</div>
+                </li>
+            </ul>
         </div>
-    </li>
-</ul>
+    </mat-expansion-panel>
+</mat-accordion>

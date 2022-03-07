@@ -6,19 +6,21 @@
   <nav>
     <!-- Menus-->
     <ul>
-      <li><mat-icon>assignment</mat-icon><span>Errores</span></li>
-      <li><mat-icon>api</mat-icon> <span>APIS</span></li>
-      <li><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
-      <li><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
-      <li><mat-icon>logout</mat-icon><span>Salir</span></li>
+      <li (click)="indexPage = 0"><mat-icon>assignment</mat-icon><span>Errores</span></li>
+      <li (click)="indexPage = 1"><mat-icon>api</mat-icon> <span>APIS</span></li>
+      <li (click)="indexPage = 2"><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
+      <li (click)="indexPage = 3"><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
+      <li (click)="indexPage = 4"><mat-icon>logout</mat-icon><span>Salir</span></li>
     </ul>
   </nav>
 </header>
 
 <section>
-  <div>
-    <app-databases></app-databases>
-  </div>
+  <mat-tab-group [selectedIndex]="indexPage">
+    <mat-tab>Errores</mat-tab>
+    <mat-tab>apis</mat-tab>
+    <mat-tab><app-databases></app-databases></mat-tab>
+  </mat-tab-group>
 </section>
 <footer>
   <div>App desarollada por: Heiler Nova</div>
