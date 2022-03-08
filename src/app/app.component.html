@@ -6,20 +6,41 @@
   <nav>
     <!-- Menus-->
     <ul>
-      <li (click)="indexPage = 0"><mat-icon>assignment</mat-icon><span>Errores</span></li>
-      <li (click)="indexPage = 1"><mat-icon>api</mat-icon> <span>APIS</span></li>
-      <li (click)="indexPage = 2"><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
-      <li (click)="indexPage = 3"><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
-      <li (click)="indexPage = 4"><mat-icon>logout</mat-icon><span>Salir</span></li>
+      <li (click)="indexPage = 0" [ngClass]="indexPage == 0 ? 'select' : ''"><mat-icon>assignment</mat-icon><span>Errores</span></li>
+      <li (click)="indexPage = 1" [ngClass]="indexPage == 1 ? 'select' : ''"><mat-icon>api</mat-icon> <span>APIS</span></li>
+      <li (click)="indexPage = 2" [ngClass]="indexPage == 2 ? 'select' : ''"><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
+      <li (click)="indexPage = 3" [ngClass]="indexPage == 3 ? 'select' : ''"><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
+      <li><mat-icon>logout</mat-icon><span>Salir</span></li>
     </ul>
   </nav>
 </header>
 
 <section>
-  <mat-tab-group [selectedIndex]="indexPage">
-    <mat-tab>Errores</mat-tab>
-    <mat-tab>apis</mat-tab>
-    <mat-tab><app-databases></app-databases></mat-tab>
+  <mat-tab-group [selectedIndex]="indexPage" animationDuration="1000ms">
+    <!-- Pagina de errores -->
+    <mat-tab>
+      <div class="tab-content">
+        <app-errors></app-errors>
+      </div>
+    </mat-tab>
+    <!-- Pagina de apis -->
+    <mat-tab>
+      <div class="tab-content">
+        <app-apis></app-apis>
+      </div>
+    </mat-tab>
+    <!-- PAgina de las bases dde datos -->
+    <mat-tab>
+      <div class="tab-content">
+        <app-databases></app-databases>
+      </div>
+    </mat-tab>
+    <!-- PAgina de las configuraciones -->
+    <mat-tab>
+      <div class="tab-content">
+        <app-config></app-config>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </section>
 <footer>
