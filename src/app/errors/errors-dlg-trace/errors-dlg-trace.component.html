@@ -1,0 +1,16 @@
+<h2>Trastro del error</h2>
+<mat-dialog-content>
+    <div class="trace" *ngFor="let trace of listTrace">
+        <div class="trace-item" *ngFor="let item of trace">
+            <div class="trace-item-title">
+                {{item.title}}
+            </div>
+            <div class="trace-item-content">
+                {{item.content}}
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button [mat-dialog-close]="false" [ngStyle]="{width:'160px'}">Cerrar</button>
+</mat-dialog-actions>

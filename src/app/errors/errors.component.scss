@@ -1,0 +1,74 @@
+mat-panel-title{
+    column-gap: 10px;
+    .method{
+        text-transform: uppercase;
+        font-weight: 600;
+        width: 60px;
+        &.get{
+            color: rgb(18, 175, 31);
+        }
+        &.post{
+            color: goldenrod;
+        }
+        &.put{
+            color: rgb(18, 91, 224);
+        }
+        &.patch{
+            color: gray;
+        }
+        &.delete{
+            color: red;
+        }
+    }
+    .date{
+        font-family: "Cascadia Code";
+    }
+}
+.controls{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.flex{
+    display: flex;
+    column-gap: 20px;
+}
+
+.error{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    .error-secction{
+        .error-secction-title{
+            font-size: 125%;
+            font-weight: 500;
+        }
+        .error-secction-content{
+            padding-top: 10px;
+            padding-left: 15px;
+        }
+    }
+
+    .error-actions{
+        border-top: 1px solid rgba(102, 102, 102, 0.747);
+        border-radius: 2px;
+    }
+}
+
+.error-item{
+    display: flex;
+    column-gap: 10px;
+    .error-item-title{
+        color: rgba(97, 95, 95, 0.856);
+        font-size: 95%;
+    }
+    .error-item-content{
+        font-weight: 500;
+    }
+}
