@@ -43,3 +43,7 @@ $app-hnova-api-panel-theme: mat.define-light-theme((
 }
 html, body { height: 100%; min-height: 100vh; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.capitalize{
+  text-transform: capitalize;
+}

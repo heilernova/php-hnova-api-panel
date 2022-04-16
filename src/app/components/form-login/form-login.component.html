@@ -1,0 +1,15 @@
+<h2>Autenticación de usuario</h2>
+<mat-dialog-content>
+        <mat-form-field appearance="standard">
+            <mat-label>Usuario</mat-label>
+            <input matInput autocomplete="off">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>Contraseña</mat-label>
+            <input matInput autocomplete="off" [type]="passwordHidden ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="passwordHidden = !passwordHidden"><mat-icon>{{passwordHidden ? 'visibility_off' : 'visibilityf'}}</mat-icon></button>
+        </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-stroked-button>Iniciar sesión</button>
+</mat-dialog-actions>

@@ -1,0 +1,84 @@
+<h2>Bases de datos utilizadas</h2>
+
+<div class="content">
+    <ul>
+        <li *ngFor="let db of databases; let i = index"
+        class="capitalize"
+        [ngClass]="databaseIndex == i ? 'select' : ''"
+        (click)="databaseSelect(i)">{{db.name}}</li>
+    </ul>
+    <div class="info-db" *ngIf="databases.length > 0">
+        <div class="info-db-data-connection">
+            Datos de conexión
+            <div class="item">
+                <div>Servidor:</div>
+                <div>{{databases[databaseIndex]?.dataConnection.hostname}}</div>
+            </div>
+            <div class="item">
+                <div>Usuario:</div>
+                <div>{{databases[databaseIndex]?.dataConnection.username}}</div>
+            </div>
+            <div class="item">
+                <div>Contraseña:</div>
+                <div>{{databases[databaseIndex]?.dataConnection.password}}</div>
+            </div>
+            <div class="item">
+                <div>Base de datos:</div>
+                <div>{{databases[databaseIndex]?.dataConnection.database}}</div>
+            </div>
+        </div>
+        <!-- Estructura de la base de datos -->
+        <div class="info-db-structure">
+            <nav>
+                <div (click)="selectStructureIndex(0)">Tablas</div>
+                <div (click)="selectStructureIndex(1)">Funciones</div>
+                <div (click)="selectStructureIndex(2)">Procedimientos</div>
+                <div (click)="selectStructureIndex(3)">Vistas</div>
+            </nav>
+            <mat-tab-group [selectedIndex]="structureIndex"  animationDuration="1000ms">
+                <!-- Pagina de errores -->
+                <mat-tab>
+                  <div class="tab-content">
+                    <ul>
+                        <li *ngFor="let tb of databases[databaseIndex]?.structure.tables">
+                          <button mat-stroked-button>Editar</button>
+                          <button mat-stroked-button (click)="showScript(tb.creationCode)">ver script</button>
+                          <div>{{tb.name}}</div>
+                        </li>
+                    </ul>
+                  </div>
+                </mat-tab>
+                <mat-tab>
+                  <div class="tab-content">
+                    <ul>
+                        <li *ngFor="let vi of databases[databaseIndex]?.structure.views">{{vi.name}}</li>
+                    </ul>
+                  </div>
+                </mat-tab>
+                <mat-tab>
+                  <div class="tab-content">
+                    <ul>
+                        <li *ngFor="let vi of databases[databaseIndex]?.structure.views">{{vi.name}}</li>
+                    </ul>
+                  </div>
+                </mat-tab>
+                <mat-tab>
+                  <div class="tab-content">
+                    <ul>
+                        <li *ngFor="let vi of databases[databaseIndex]?.structure.views">
+                          <button mat-stroked-button (click)="showScript(vi.creationCode)">ver script</button>
+                          <div>{{vi.name}}</div>
+                        </li>
+                    </ul>
+                  </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <!-- Acciones -->
+        <div class="info-db-actions">
+            <button mat-stroked-button>Instalar</button>
+            <button mat-stroked-button>Instalar estructura</button>
+            <button mat-stroked-button>Desgargar backoup</button>
+        </div>
+    </div>
+</div>

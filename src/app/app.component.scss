@@ -57,6 +57,7 @@ section{
         width: 100%;
         max-width: 900px;
         padding: 10px;
+        
     }
 
     .content-page{
@@ -85,6 +86,14 @@ footer{
 }
 
 ::ng-deep{
+
+    .cdk-overlay-container{
+        .mat-dialog-container{
+            // padding: 10px;
+            border-radius: 8px;
+        }
+
+    }
     mat-tab-group{
         height: 100%;
     }

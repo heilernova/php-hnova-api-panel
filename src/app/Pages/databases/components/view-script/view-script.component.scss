@@ -1,0 +1,9 @@
+.text{
+    color: brown;
+}
+
+.pr{
+    .text{
+        color: rgb(39, 77, 249);
+    }
+}

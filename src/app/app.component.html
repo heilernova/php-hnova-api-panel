@@ -6,10 +6,10 @@
   <nav>
     <!-- Menus-->
     <ul>
-      <li (click)="indexPage = 0" [ngClass]="indexPage == 0 ? 'select' : ''"><mat-icon>assignment</mat-icon><span>Errores</span></li>
-      <li (click)="indexPage = 1" [ngClass]="indexPage == 1 ? 'select' : ''"><mat-icon>api</mat-icon> <span>APIS</span></li>
-      <li (click)="indexPage = 2" [ngClass]="indexPage == 2 ? 'select' : ''"><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
-      <li (click)="indexPage = 3" [ngClass]="indexPage == 3 ? 'select' : ''"><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
+      <li (click)="selectPage(0)" [ngClass]="indexPage == 0 ? 'select' : ''"><mat-icon>assignment</mat-icon><span>Errores</span></li>
+      <li (click)="selectPage(1)" [ngClass]="indexPage == 1 ? 'select' : ''"><mat-icon>alt_route</mat-icon> <span>Routas</span></li>
+      <li (click)="selectPage(2)" [ngClass]="indexPage == 2 ? 'select' : ''"><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
+      <li (click)="selectPage(3)" [ngClass]="indexPage == 3 ? 'select' : ''"><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
       <li><mat-icon>logout</mat-icon><span>Salir</span></li>
     </ul>
   </nav>
@@ -20,16 +20,16 @@
     <!-- Pagina de errores -->
     <mat-tab>
       <div class="tab-content">
-        <app-errors></app-errors>
+        <!-- <app-errors></app-errors> -->
       </div>
     </mat-tab>
     <!-- Pagina de apis -->
     <mat-tab>
       <div class="tab-content">
-        <app-apis></app-apis>
+        <!-- <app-apis></app-apis> -->
       </div>
     </mat-tab>
-    <!-- PAgina de las bases dde datos -->
+    <!-- Pagina de las bases de datos -->
     <mat-tab>
       <div class="tab-content">
         <app-databases></app-databases>
