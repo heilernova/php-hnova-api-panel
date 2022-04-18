@@ -15,6 +15,7 @@ import { DatabasesModule } from './Pages/databases/databases.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfigModule } from './Pages/config/config.module';
 import { FormLoginModule } from './components/form-login/form-login.module';
+import { NovaModule } from 'ng-nova';
 registerLocaleData(es);
 
 @NgModule({
@@ -30,7 +31,8 @@ registerLocaleData(es);
     DatabasesModule,
     MatDialogModule,
     ConfigModule,
-    FormLoginModule
+    FormLoginModule,
+    NovaModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:ApiInterceptor, multi:true}

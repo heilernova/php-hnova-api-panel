@@ -12,6 +12,20 @@ mat-dialog-content{
     }
     .backdrop-login{
         background-color: rgb(18, 138, 236);
+        // position: relative;
+        &::before{
+            position: fixed;
+            z-index: 0;
+            color: rgb(223, 219, 219);
+            font-weight: 500;
+            font-size: 120%;
+
+            content: 'App desarrollada por Heiler Nova';
+            text-align: center;
+            height: 20px;
+            width: 100%;
+            bottom: 10px;
+        }
     }
 }
 
