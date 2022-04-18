@@ -8,6 +8,9 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-form-login',
@@ -39,11 +42,21 @@ export class FormLoginComponent implements OnInit {
 
   isOpen = false;
   passwordHidden:boolean = true;
+  form:FormGroup;
+  inputExternalURL = new FormControl();
 
   constructor(
-    private _matDialogRef:MatDialogRef<FormLoginComponent>
+    private _matDialogRef:MatDialogRef<FormLoginComponent>,
+    private _http:HttpClient,
+    private _user:UserService
   ) { 
     
+    // Inicalizamor el form group
+    this.form = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    });
+
     this._matDialogRef.backdropClick().subscribe(d=>{
       
       if (!this.isOpen){
@@ -55,7 +68,7 @@ export class FormLoginComponent implements OnInit {
           this._matDialogRef.removePanelClass('pn');
         }, 500);
       }
-    })
+    });
 
   }
 
@@ -63,7 +76,13 @@ export class FormLoginComponent implements OnInit {
   }
 
   send(){
-    
+
+    this._http.post<string>('auth', JSON.stringify(this.form.value)).subscribe({
+      next: (token:string)=>{
+        this._user.login(token);
+        this._matDialogRef.close();
+      }
+    });
   }
 
 }

@@ -41,9 +41,12 @@ $app-hnova-api-panel-theme: mat.define-light-theme((
   --color-header-logo-foreground: rgb(255, 255, 255);
   // --color-header-logo-foreground: red;
 }
-html, body { height: 100%; min-height: 100vh; }
+html, body { height: 100vh; min-height: 100vh; max-height: 100vh; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .capitalize{
   text-transform: capitalize;
+}
+.uppercase{
+  text-transform: uppercase;
 }

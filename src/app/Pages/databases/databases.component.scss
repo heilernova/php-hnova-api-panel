@@ -10,7 +10,7 @@
     grid-template-columns: auto 1fr;
     column-gap: 20px;
 
-    ul{
+    .menu-lateral{
         padding: 0;
         margin: 0;
         li{
@@ -31,6 +31,9 @@
     .info-db{
         display: grid;
         grid-template-rows: auto 1fr auto;
+        row-gap: 10px;
+        // background-color: red;
+
         .info-db-data-connection{
             .item{
                 display: flex;
@@ -46,15 +49,39 @@
             }
         }
         .info-db-structure{
-            margin-top: 20px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+
             nav{
-                display: flex;
-                align-items: center;
-                column-gap: 10px;
-                cursor: pointer;
+                ul{
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 20px;
+                    li{
+                        cursor: pointer;
+                        font-weight: 500;
+                        &.select{
+                            color: rgb(18, 138, 236, 0.8);
+                            transform: scale(1.2);
+                            transition: all 0.4s;
+                        }
+                    }
+                }
             }
-            .tab-content{
+            .info-db-structure-content{
+                position: relative;
+                mat-tab-group{
+                    position: absolute;
+                    top: 0; right: 0; left: 0; bottom: 0;
+                }
+            }
+                
+            .tab-content-db{
                 width: 100%;
+
                 ul{
                     list-style: none;
                     margin: 0;
@@ -70,7 +97,7 @@
         }
 
         .info-db-actions{
-            margin-top: 20px;
+            padding: 10px;
             display: flex;
             column-gap: 10px;
             // background-color: red;

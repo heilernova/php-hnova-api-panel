@@ -19,7 +19,7 @@ export class AppComponent {
       this.indexPage = JSON.parse(index);
     }
 
-    if (this._user.isLoggedIn()){
+    if (!this._user.isLoggedIn()){
       this._user.authenticate();
     }
   }

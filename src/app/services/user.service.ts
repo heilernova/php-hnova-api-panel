@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormLoginComponent } from '../components/form-login/form-login.component';
@@ -8,7 +9,8 @@ import { FormLoginComponent } from '../components/form-login/form-login.componen
 export class UserService {
 
   constructor(
-    private _matDialog:MatDialog
+    private _matDialog:MatDialog,
+    private _http:HttpClient
   ) { }
 
   /**
@@ -30,5 +32,9 @@ export class UserService {
    */
   logaout():void{
     localStorage.removeItem('nv-panel-access');
+  }
+
+  login(token:string):void{
+    localStorage.setItem('nv-panel-accessn', token);
   }
 }
