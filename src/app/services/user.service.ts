@@ -35,6 +35,6 @@ export class UserService {
   }
 
   login(token:string):void{
-    localStorage.setItem('nv-panel-accessn', token);
+    localStorage.setItem('nv-panel-access', token);
   }
 }

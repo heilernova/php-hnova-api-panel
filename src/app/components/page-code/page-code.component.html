@@ -1,0 +1,10 @@
+<table>
+    <tbody class="page-code-sql">
+        <tr *ngFor="let line of codeLines">
+            <td class="index"></td>
+            <td class="line">
+                <div [innerHTML]="line"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>

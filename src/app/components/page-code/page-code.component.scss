@@ -1,0 +1,22 @@
+::ng-deep{
+
+    .page-code-sql{
+        font-family: 'Cascadia Code';
+        .line{
+            color: rgb(39, 77, 249);
+            font-weight: 550;
+        }
+        .text-1{
+            color: rgb(0, 139, 7);
+            font-weight: 500;
+        }
+        .text-2{
+            color: brown;
+            font-weight: 400;
+        }
+
+        .num-1{
+            color: greenyellow;
+        }
+    }
+}
