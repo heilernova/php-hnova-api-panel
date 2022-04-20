@@ -1,0 +1,72 @@
+:host{
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+nav{
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        column-gap: 30px;
+        cursor: pointer;
+    }
+}
+
+section{
+    // display: flex;
+    .section-item{
+        width: 100%;
+        display: none;
+        &.show{
+            display: unset;
+        }
+        .content{
+         padding: 10px 10px 20px 10px;   
+        }
+        .actions{
+
+        }
+    }
+    .info{
+        
+    }
+    .create{
+        .code{
+            font-family: Cascadia Code;
+            font-weight: 500;
+            white-space: pre-wrap;
+            .line{
+                color: rgb(39, 77, 249);
+                padding-left: 20px;
+            }
+        }
+    }
+    
+    .colums{
+        .title{
+            font-size: 110%;
+            font-weight: 400;
+        }
+        table{
+            tbody{
+                td.index{
+                    display: flex;
+                    justify-content: flex-end;
+                    column-gap: 5px;
+                    align-items: center;
+                    mat-icon{
+                        color: rgb(143, 19, 19);
+                        &.pri{
+                            color: rgb(182, 171, 12);
+                        }
+                    }
+                }
+                td{
+                    padding: 0 10px;
+                }
+            }
+
+        }
+    }
+}

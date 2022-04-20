@@ -14,4 +14,12 @@ export class ApiDatabaseService {
   getDatabases():Observable<any[]>{
     return this._http.get<any[]>('db');
   }
+
+  databaseChange(name:string, dataConnection:any):Observable<boolean>{
+    return this._http.put<boolean>(`db/${name}`, JSON.stringify(dataConnection));
+  }
+
+  tableInfo(db:string, table:string):Observable<any>{
+    return this._http.get<any>(`db/${db}/table-info/${table}`);
+  }
 }

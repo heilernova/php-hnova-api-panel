@@ -1,0 +1,58 @@
+<h2>Table [ {{tableName}} ]</h2>
+<mat-dialog-content>
+    <div>Comentario: </div>
+    <nav>
+        <ul>
+            <li (click)="selectIndex(0)">Columnas</li>
+            <li (click)="selectIndex(1)">Código CREATE</li>
+            <li>Datos</li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="section-item colums" [ngClass]="index == 0 ? 'show' : ''">
+           <div class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Tipo de dato</th>
+                            <th>Perimite NULL</th>
+                            <th>Key</th>
+                            <th>Predeterminado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let column of tableInfo.info.columns; let i = index">
+                            <td class="index">
+                                <mat-icon *ngIf="column.key != ''" [ngClass]="column.key =='PRI' ? 'pri' : ''">key</mat-icon>
+                                {{(i + 1).toString().padStart(2, '0')}}
+                            </td>
+                            <td>{{column.field}}</td>
+                            <td class="uppercase">{{column.type}}</td>
+                            <td>{{column.null}}</td>
+                            <td class="uppercase">{{column.key}}</td>
+                            <td>{{column.default == null ? 'NULL' : column.default }}</td>
+                            <td>{{column.extra}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+           </div>
+        </div>
+        <div class="section-item create" [ngClass]="index == 1 ? 'show' : ''">
+           <div class="code content"> 
+                <table>
+                    <tr *ngFor="let line of createCodeLines; let i = index">
+                        <td>{{(i + 1).toString().padStart(2, '0')}}</td>
+                        <td class="line">  <div [innerHTML]="line | html"></div></td>
+                    </tr>
+                </table>
+           </div>
+           <div>
+               <button mat-stroked-button>Copiar código</button>
+           </div>
+        </div>
+    </section>
+
+</mat-dialog-content>

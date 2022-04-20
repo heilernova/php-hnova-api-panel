@@ -33,8 +33,19 @@
         grid-template-rows: auto 1fr auto;
         row-gap: 10px;
         // background-color: red;
-
+        .title{
+            font-weight: 500;
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 115%;
+        }
         .info-db-data-connection{
+            display: flex;
+            column-gap: 30px;
+            margin-bottom: 10px;
+            .content-db{
+                padding-left: 10px;
+            }
             .item{
                 display: flex;
                 column-gap: 10px;
@@ -73,6 +84,7 @@
             }
             .info-db-structure-content{
                 position: relative;
+                overflow: auto;
                 mat-tab-group{
                     position: absolute;
                     top: 0; right: 0; left: 0; bottom: 0;

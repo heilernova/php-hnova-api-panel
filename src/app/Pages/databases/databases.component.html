@@ -8,73 +8,53 @@
         (click)="databaseSelect(i)">{{db.name}}</li>
     </ul>
     <div class="info-db" *ngIf="databases.length > 0">
-        <!-- <textarea style="font-family: Cascadia Code;"></textarea> -->
+
+        <!-- Datos de conexión de a la base de datos. -->
         <div class="info-db-data-connection">
-            Datos de conexión
-            <div class="item">
-                <div>Servidor:</div>
-                <div>{{databases[databaseIndex]?.dataConnection.hostname}}</div>
+          <div>
+              <div class="title">Datos de conexión</div>
+              <div class="content-db">
+                <div class="item">
+                    <div>Servidor:</div>
+                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.hostname}}</div>
+                </div>
+                <div class="item">
+                    <div>Usuario:</div>
+                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.username}}</div>
+                </div>
+                <div class="item">
+                    <div>Contraseña:</div>
+                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.password}}</div>
+                </div>
+                <div class="item">
+                    <div>Base de datos:</div>
+                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.database}}</div>
+                </div>
+                <div class="item">
+                    <div>Conexión:</div>
+                    <div style="min-width: 200px;">{{databases[databaseIndex]?.status ? 'Correcta' : 'Incorrecta'}}</div>
+                </div>
+                <button mat-stroked-button (click)="editDataConnection(databases[databaseIndex])">
+                  Editar datos de conexión
+                  <!-- <mat-icon>edit</mat-icon> -->
+                  <!-- <div style="display: flex; column-gap: 10px; align-items: flex-end;">
+                    <span>Editar datos de conexión</span>
+                  </div> -->
+                </button>
+              </div>
             </div>
-            <div class="item">
-                <div>Usuario:</div>
-                <div>{{databases[databaseIndex]?.dataConnection.username}}</div>
+            <div>
+              <div class="item">
+                <div>Estado:</div>
+                <div><mat-icon>check</mat-icon></div>
             </div>
-            <div class="item">
-                <div>Contraseña:</div>
-                <div>{{databases[databaseIndex]?.dataConnection.password}}</div>
-            </div>
-            <div class="item">
-                <div>Base de datos:</div>
-                <div>{{databases[databaseIndex]?.dataConnection.database}}</div>
             </div>
         </div>
         <!-- Estructura de la base de datos -->
         <div class="info-db-structure">
-            <nav>
-                <ul>
-                  <li (click)="selectStructureIndex(0)" [ngClass]="structureIndex == 0 ? 'select':''">Tablas</li>
-                  <li (click)="selectStructureIndex(1)" [ngClass]="structureIndex == 1 ? 'select':''">Functions</li>
-                </ul>
-            </nav>
-            <div class="info-db-structure-content">
-              <mat-tab-group [selectedIndex]="structureIndex"  animationDuration="1000ms">
-                  <mat-tab>
-                    <div class="tab-content-db">
-                      <ul>
-                          <li *ngFor="let tb of databases[databaseIndex]?.structure.tables">
-                            <button mat-stroked-button>Editar</button>
-                            <button mat-stroked-button (click)="showScript(tb.creationCode)">ver script</button>
-                            <div>{{tb.name}}</div>
-                          </li>
-                      </ul>
-                    </div>
-                  </mat-tab>
-                  <mat-tab>
-                    <div class="tab-content-db">
-                      <ul>
-                          <li *ngFor="let vi of databases[databaseIndex]?.structure.views">{{vi.name}}</li>
-                      </ul>
-                    </div>
-                  </mat-tab>
-                  <mat-tab>
-                    <div class="tab-content-db">
-                      <ul>
-                          <li *ngFor="let vi of databases[databaseIndex]?.structure.views">{{vi.name}}</li>
-                      </ul>
-                    </div>
-                  </mat-tab>
-                  <mat-tab>
-                    <div class="tab-content-db">
-                      <ul>
-                          <li *ngFor="let vi of databases[databaseIndex]?.structure.views">
-                            <button mat-stroked-button (click)="showScript(vi.creationCode)">ver script</button>
-                            <div>{{vi.name}}</div>
-                          </li>
-                      </ul>
-                    </div>
-                  </mat-tab>
-              </mat-tab-group>
-            </div>
+          <div class="title">Estructura  de la base de datos</div>
+            <!-- <app-database-structure [structure]="databases[databaseIndex]?.structure ?? []" [database]="databases[databaseIndex]"></app-database-structure> -->
+            <app-page-code [codeText]="testCode"></app-page-code>
         </div>
         <!-- Acciones -->
         <div class="info-db-actions">
