@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { TableInfoModule } from './components/table-info/table-info.module';
 
 
-
 @NgModule({
   declarations: [
     DatabaseStructureComponent

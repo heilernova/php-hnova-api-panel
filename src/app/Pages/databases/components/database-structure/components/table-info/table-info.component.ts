@@ -58,4 +58,9 @@ export class TableInfoComponent implements OnInit {
   selectIndex(index:number){
     this.index = index;
   }
+  copyCode(){
+    navigator.clipboard.writeText(this.tableInfo.info.create).then(()=>{
+      console.log("Text copied to clipboard...");
+    })
+  }
 }

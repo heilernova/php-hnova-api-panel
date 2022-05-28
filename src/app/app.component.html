@@ -10,7 +10,7 @@
       <li (click)="selectPage(1)" [ngClass]="indexPage == 1 ? 'select' : ''"><mat-icon>alt_route</mat-icon> <span>Routas</span></li>
       <li (click)="selectPage(2)" [ngClass]="indexPage == 2 ? 'select' : ''"><mat-icon>topic</mat-icon> <span>Bases de datos</span></li>
       <li (click)="selectPage(3)" [ngClass]="indexPage == 3 ? 'select' : ''"><mat-icon>settings</mat-icon><span>Configuraciones</span></li>
-      <li><mat-icon>logout</mat-icon><span>Salir</span></li>
+      <li (click)="logout()"><mat-icon >logout</mat-icon><span>Salir</span></li>
     </ul>
   </nav>
 </header>
@@ -23,10 +23,10 @@
         <!-- <app-errors></app-errors> -->
       </div>
     </mat-tab>
-    <!-- Pagina de apis -->
+    <!-- Pagina de ruta -->
     <mat-tab>
       <div class="tab-content">
-        <!-- <app-apis></app-apis> -->
+        <app-routes class="content"></app-routes>
       </div>
     </mat-tab>
     <!-- Pagina de las bases de datos -->
@@ -47,4 +47,7 @@
 <!-- Footer -->
 <footer>
   <div>App desarollada por: Heiler Nova</div>
+  <div>
+    <!-- Iconos: <a target="_blank" href="https://icons8.com/icon/UFXRpPFebwa2/logo-de-mysql">Logo de Mysql</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+  </div>
 </footer>

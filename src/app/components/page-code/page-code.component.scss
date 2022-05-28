@@ -1,22 +1,35 @@
 ::ng-deep{
 
+    .page-code{
+        // border-radius: 5px;
+        // box-shadow: 0 0 1px 1px rgba(63, 62, 62, 0.514);
+        padding: 5px 0;
+        table{
+            border-collapse: collapse;
+        }
+    }
     .page-code-sql{
         font-family: 'Cascadia Code';
+        .index{
+            border-right: 1px solid rgba(150, 145, 145, 0.568);
+        }
         .line{
-            color: rgb(39, 77, 249);
+            padding-left: 10px;
+            color: rgb(0,0,255);
             font-weight: 550;
+
         }
         .text-1{
             color: rgb(0, 139, 7);
             font-weight: 500;
         }
         .text-2{
-            color: brown;
+            color: #A31515;
             font-weight: 400;
         }
 
         .num-1{
-            color: greenyellow;
+            color: #508858;
         }
     }
 }

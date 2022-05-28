@@ -21,36 +21,34 @@
                             <th>Perimite NULL</th>
                             <th>Key</th>
                             <th>Predeterminado</th>
+                            <th>Extra</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let column of tableInfo.info.columns; let i = index">
                             <td class="index">
-                                <mat-icon *ngIf="column.key != ''" [ngClass]="column.key =='PRI' ? 'pri' : ''">key</mat-icon>
-                                {{(i + 1).toString().padStart(2, '0')}}
+                                <div>
+                                    <mat-icon *ngIf="column.key != ''" [ngClass]="column.key =='PRI' ? 'pri' : ''">key</mat-icon>
+                                    {{(i + 1).toString().padStart(2, '0')}}
+                                </div>
                             </td>
-                            <td>{{column.field}}</td>
-                            <td class="uppercase">{{column.type}}</td>
-                            <td>{{column.null}}</td>
-                            <td class="uppercase">{{column.key}}</td>
-                            <td>{{column.default == null ? 'NULL' : column.default }}</td>
-                            <td>{{column.extra}}</td>
+                            <td><div>{{column.field}}</div></td>
+                            <td class="uppercase"><div>{{column.type}}</div></td>
+                            <td><div>{{column.null}}</div></td>
+                            <td class="uppercase"><div>{{column.key}}</div></td>
+                            <td><div>{{column.default == null ? 'NULL' : column.default }}</div></td>
+                            <td><div>{{column.extra}}</div></td>
                         </tr>
                     </tbody>
                 </table>
            </div>
         </div>
         <div class="section-item create" [ngClass]="index == 1 ? 'show' : ''">
-           <div class="code content"> 
-                <table>
-                    <tr *ngFor="let line of createCodeLines; let i = index">
-                        <td>{{(i + 1).toString().padStart(2, '0')}}</td>
-                        <td class="line">  <div [innerHTML]="line | html"></div></td>
-                    </tr>
-                </table>
+           <div class="content"> 
+                <app-page-code [codeText]="tableInfo.info.create"></app-page-code>
            </div>
-           <div>
-               <button mat-stroked-button>Copiar código</button>
+           <div class="actions">
+               <button mat-stroked-button (click)="copyCode()">Copiar código</button>
            </div>
         </div>
     </section>

@@ -28,4 +28,9 @@ export class AppComponent {
     this.indexPage = index;
     localStorage.setItem('nv-panel-index-page', JSON.stringify(index));
   }
+
+  logout(): void {
+    this._user.logaout();
+    this._user.authenticate();
+  }
 }

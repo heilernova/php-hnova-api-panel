@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Información de la base de datos</h2>
+<mat-dialog-content>
+
+    <div class="form" [formGroup]="form">
+        <div class="data">
+            <mat-form-field>
+                <mat-label>Nombre (ID)</mat-label>
+                <input matInput autocomplete="off" formControlName="name">
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Tipo de base de datos</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="mysql">MySql</mat-option>
+                    <mat-option value="postgresql">PostgreSQL</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="data-connection" formGroupName="dataConnection">
+            <h3>Datos de conexión</h3>
+            <mat-form-field>
+                <mat-label>Servidor</mat-label>
+                <input matInput autocomplete="off" formControlName="hostname">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input matInput autocomplete="off" formControlName="username">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput autocomplete="off" formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Base de datos</mat-label>
+                <input matInput autocomplete="off" formControlName="database">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descriptión</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button (click)="testConnection()" [disabled]="disableBottonTest()">
+        Probar conexión
+    </button>
+    <button mat-stroked-button (click)="salve()" [disabled]="form.invalid">
+        Guardar
+    </button>
+</mat-dialog-actions>

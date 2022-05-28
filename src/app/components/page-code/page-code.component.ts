@@ -61,9 +61,9 @@ export class PageCodeComponent implements OnInit, OnChanges  {
       
       let textStart:boolean = false;
       let lineTempo:string = "";
-      let parenthesisStart:boolean = false;
-      let parenthesisEnd:boolean = false;
-      let isNumber:boolean = false;
+      let parenthesesOpen:boolean = false;
+      let numValid:number = 0;
+      let numStart:boolean = false;
 
       value.match(/.{1}/g)?.forEach(char=>{
       
@@ -80,9 +80,37 @@ export class PageCodeComponent implements OnInit, OnChanges  {
         }else if (char == ' '){
           lineTempo += "&nbsp;";
         }
+        else if (char == '(' && !parenthesesOpen){
+          lineTempo += char
+          parenthesesOpen = true
+        }
         else{
-
-          lineTempo += char;
+          if (parenthesesOpen){
+            numValid++;
+            if (char != ')'){
+              if (numValid == 1){
+                if (parseInt(char)){
+                  lineTempo +=  `<span class="num-1">${char}`
+                  numStart = true;
+                }else{
+                  parenthesesOpen = false;
+                  lineTempo += char
+                }
+              }else{
+                lineTempo += char
+              }
+            }else{
+              
+              parenthesesOpen = false
+              if (numStart){
+                lineTempo += `</span>${char}`;
+              }else{
+                lineTempo += char
+              }
+            }
+          }else{
+            lineTempo += char
+          }
         }
       });
 

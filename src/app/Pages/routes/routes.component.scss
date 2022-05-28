@@ -1,0 +1,23 @@
+ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    li{
+        padding: 5px;
+        box-shadow: 0 0 1px 1px gainsboro;
+        border-radius: 5px;
+        .path{
+            display: flex;
+            column-gap: 10px;
+            span:first-child{
+                color: gray;
+            }
+            span:last-child{
+                font-weight: 500;
+                font-family: 'Cascadia Code';
+            }
+        }
+    }
+}

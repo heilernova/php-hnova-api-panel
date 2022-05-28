@@ -18,47 +18,61 @@ section{
     .section-item{
         width: 100%;
         display: none;
+        padding: 2px;
         &.show{
             display: unset;
         }
         .content{
-         padding: 10px 10px 20px 10px;   
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 1px 1px rgba(134, 134, 134, 0.527);
+            // display: flex;
+            // flex-direction: column;
+            // row-gap: 5px;
+
         }
         .actions{
-
+            margin-top: 5px;
         }
     }
     .info{
         
     }
-    .create{
-        .code{
-            font-family: Cascadia Code;
-            font-weight: 500;
-            white-space: pre-wrap;
-            .line{
-                color: rgb(39, 77, 249);
-                padding-left: 20px;
-            }
-        }
-    }
+
     
     .colums{
+
         .title{
             font-size: 110%;
             font-weight: 400;
         }
         table{
+            border-collapse: collapse;
             tbody{
+                tr{
+                    border-bottom: 1px solid rgba(180, 174, 174, 0.644);
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                }
+                td{
+                    // background-color: red;
+                    div{
+                        padding: 3px;
+                    }
+                }
                 td.index{
-                    display: flex;
-                    justify-content: flex-end;
-                    column-gap: 5px;
-                    align-items: center;
-                    mat-icon{
-                        color: rgb(143, 19, 19);
-                        &.pri{
-                            color: rgb(182, 171, 12);
+                    div{
+                        display: flex;
+                        justify-content: flex-end;
+                        column-gap: 5px;
+                        align-items: center;
+                        border-right: 1px solid rgba(59, 59, 59, 0.616);
+                        mat-icon{
+                            color: rgb(143, 19, 19);
+                            &.pri{
+                                color: rgb(182, 171, 12);
+                            }
                         }
                     }
                 }

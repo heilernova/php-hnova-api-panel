@@ -1,66 +1,52 @@
 <h2>Bases de datos utilizadas</h2>
-
-<div class="content">
-    <ul class="menu-lateral">
-        <li *ngFor="let db of databases; let i = index"
-        class="uppercase"
-        [ngClass]="databaseIndex == i ? 'select' : ''"
-        (click)="databaseSelect(i)">{{db.name}}</li>
-    </ul>
-    <div class="info-db" *ngIf="databases.length > 0">
-
-        <!-- Datos de conexión de a la base de datos. -->
-        <div class="info-db-data-connection">
-          <div>
-              <div class="title">Datos de conexión</div>
-              <div class="content-db">
-                <div class="item">
-                    <div>Servidor:</div>
-                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.hostname}}</div>
-                </div>
-                <div class="item">
-                    <div>Usuario:</div>
-                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.username}}</div>
-                </div>
-                <div class="item">
-                    <div>Contraseña:</div>
-                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.password}}</div>
-                </div>
-                <div class="item">
-                    <div>Base de datos:</div>
-                    <div style="min-width: 200px;">{{databases[databaseIndex]?.dataConnection.database}}</div>
-                </div>
-                <div class="item">
-                    <div>Conexión:</div>
-                    <div style="min-width: 200px;">{{databases[databaseIndex]?.status ? 'Correcta' : 'Incorrecta'}}</div>
-                </div>
-                <button mat-stroked-button (click)="editDataConnection(databases[databaseIndex])">
-                  Editar datos de conexión
-                  <!-- <mat-icon>edit</mat-icon> -->
-                  <!-- <div style="display: flex; column-gap: 10px; align-items: flex-end;">
-                    <span>Editar datos de conexión</span>
-                  </div> -->
-                </button>
-              </div>
-            </div>
-            <div>
-              <div class="item">
-                <div>Estado:</div>
-                <div><mat-icon>check</mat-icon></div>
-            </div>
-            </div>
-        </div>
-        <!-- Estructura de la base de datos -->
-        <div class="info-db-structure">
-          <div class="title">Estructura  de la base de datos</div>
-            <!-- <app-database-structure [structure]="databases[databaseIndex]?.structure ?? []" [database]="databases[databaseIndex]"></app-database-structure> -->
-            <app-page-code [codeText]="testCode"></app-page-code>
-        </div>
-        <!-- Acciones -->
-        <div class="info-db-actions">
-            <button mat-stroked-button>Instalar</button>
-            <button mat-stroked-button>Instalar estructura</button>
-            <button mat-stroked-button>Desgargar backoup</button>
-        </div>
-    </div>
+<div class="panel">
+  <button mat-stroked-button (click)="insertDb()">
+    <mat-icon>
+      add
+    </mat-icon>
+    <span>
+      Agregar
+    </span>
+  </button>
+  <button mat-stroked-button (click)="loadDatabases()">
+    <mat-icon>
+      refresh
+    </mat-icon>
+    <span>
+      Actializar
+    </span>
+  </button>
 </div>
+<div class="content">
+  <ul>
+    <!-- <a target="_blank" href="https://icons8.com/icon/38561/postgresql">PostgreSQL</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+    <li *ngFor="let db of databases">
+      <img [src]="db.type == 'mysql' ? './../../../assets/icon-mysql.svg' : './../../../assets/icon-postgresql.svg'" alt="">
+      <div class="info">
+        <span class="name">{{db.name}}</span>
+        <div class="description">
+          {{db.description}}
+        </div>
+      </div>
+      <div class="controls">
+        <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{db}">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<mat-menu #menu="matMenu" xPosition="before">
+  <ng-template matMenuContent let-db="db">
+    <button mat-menu-item (click)="showDbInfo(db)">
+      <mat-icon>edit</mat-icon>
+      <span>Editar</span>
+    </button>
+    <button mat-menu-item (click)="deleteDatabase(db.name)">
+      <mat-icon>delete</mat-icon>
+      <span>Eliminar</span>
+    </button>
+  </ng-template>
+  
+</mat-menu>

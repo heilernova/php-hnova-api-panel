@@ -8,7 +8,8 @@ import { ViewScriptModule } from './components/view-script/view-script.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { FormDbConnectionModule } from './components/form-db-connection/form-db-connection.module';
 import { DatabaseStructureModule } from './components/database-structure/database-structure.module';
-import { PageCodeModule } from 'src/app/components/page-code/page-code.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { DbInfoModule } from './components/db-info/db-info.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import { PageCodeModule } from 'src/app/components/page-code/page-code.module';
     ViewScriptModule,
     FormDbConnectionModule,
     DatabaseStructureModule,
-    PageCodeModule,
     PipesModule,
+    MatMenuModule,
+    DbInfoModule
   ],
   exports: [
     DatabasesComponent

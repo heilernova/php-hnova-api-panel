@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ChangeCredentialsComponent } from './change-credentials/change-credentials.component';
 
 @Component({
   selector: 'app-config',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _matDialog:MatDialog
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  change(): void {
+    this._matDialog.open(ChangeCredentialsComponent);
   }
 
 }

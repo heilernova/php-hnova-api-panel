@@ -76,7 +76,6 @@ export class FormLoginComponent implements OnInit {
   }
 
   send(){
-
     this._http.post<string>('auth', JSON.stringify(this.form.value)).subscribe({
       next: (token:string)=>{
         this._user.login(token);

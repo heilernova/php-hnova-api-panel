@@ -1,0 +1,20 @@
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    .data{
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 20px;
+    }
+    .data-connection{
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        // grid-template-rows: auto auto;
+        display: flex;
+        flex-direction: column;
+        column-gap: 20px;
+
+    }
+}

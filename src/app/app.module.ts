@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ConfigModule } from './Pages/config/config.module';
 import { FormLoginModule } from './components/form-login/form-login.module';
 import { NovaModule } from 'ng-nova';
+import { GlobalErrorHandler } from './services/global-error';
+import { RoutesModule } from './Pages/routes/routes.module';
 registerLocaleData(es);
 
 @NgModule({
@@ -32,10 +34,12 @@ registerLocaleData(es);
     MatDialogModule,
     ConfigModule,
     FormLoginModule,
-    NovaModule
+    NovaModule,
+    RoutesModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:ApiInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass:ApiInterceptor, multi:true},
+    {provide: ErrorHandler, useClass: GlobalErrorHandler}
   ],
   bootstrap: [AppComponent]
 })
