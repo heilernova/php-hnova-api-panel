@@ -21,7 +21,7 @@
   <ul>
     <!-- <a target="_blank" href="https://icons8.com/icon/38561/postgresql">PostgreSQL</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
     <li *ngFor="let db of databases">
-      <img [src]="db.type == 'mysql' ? './../../../assets/icon-mysql.svg' : './../../../assets/icon-postgresql.svg'" alt="">
+      <img [src]="db.type == 'mysql' ? './assets/icon-mysql.svg' : './assets/icon-postgresql.svg'" alt="">
       <div class="info">
         <span class="name">{{db.name}}</span>
         <div class="description">
